@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-turquoise: #2cbcc3;
+  --color-turquoise-dark: #209ca3;
+  --color-turquoise-light: #e8f9fa;
+
+  --color-night: #0e5a66;
+  --color-night-dark: #083d46;
+  --color-night-light: #e8f1f2;
+
+  --color-gold: #c8a96a;
+  --color-gold-dark: #a98a4e;
+  --color-gold-light: #f8f3e8;
+
+  --color-cream: #fcfaf6;
+  --color-white: #ffffff;
+
+  --color-text: #163d43;
+  --color-muted: #657a7e;
+  --color-border: #dce9e9;
+
+  --shadow-soft:
+    0 18px 60px rgba(14, 90, 102, 0.08),
+    0 4px 18px rgba(14, 90, 102, 0.05);
+
+  --shadow-button:
+    0 12px 30px rgba(44, 188, 195, 0.24);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--color-white);
+  color: var(--color-text);
+  font-family: var(--font-poppins), Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(44, 188, 195, 0.22);
+  color: var(--color-night-dark);
+}
+
+.font-heading {
+  font-family: var(--font-league-spartan), Arial, sans-serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.container-site {
+  width: min(100% - 32px, 1180px);
+  margin-inline: auto;
+}
+
+.section-spacing {
+  padding-block: clamp(72px, 10vw, 144px);
+}
+
+.surface-soft {
+  border: 1px solid rgba(14, 90, 102, 0.1);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: var(--shadow-soft);
+}
+
+.focus-ring:focus-visible {
+  outline: 3px solid rgba(44, 188, 195, 0.35);
+  outline-offset: 4px;
 }

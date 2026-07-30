@@ -1,5 +1,7 @@
-import { AuditPage } from "@/components/...";
-
-export default function Page() {
-  return <AuditPage />;
+export default function AuditDeclicPage() {
+  return (
+    <main>
+      <h1>Audit Déclic</h1>
+    </main>
+  );
 }

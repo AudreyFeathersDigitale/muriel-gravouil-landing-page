@@ -4,7 +4,23 @@ import { motion, useReducedMotion } from "motion/react";
 
 import { Container, Reveal } from "@/components/ui";
 
-const dnaRows = Array.from({ length: 15 }, (_, index) => index);
+const dnaOffsets = [
+  0,
+  50,
+  62,
+  28,
+  -28,
+  -62,
+  -50,
+  0,
+  50,
+  62,
+  28,
+  -28,
+  -62,
+  -50,
+  0,
+] as const;
 
 export function HumanDesignTransition() {
   const shouldReduceMotion = useReducedMotion();
@@ -12,7 +28,7 @@ export function HumanDesignTransition() {
   return (
     <section
       id="human-design"
-      className="relative isolate overflow-hidden bg-[var(--color-night-dark)] py-28 text-white sm:py-36 lg:py-44"
+      className="relative isolate overflow-hidden bg-[var(--color-night-dark)] py-24 text-white sm:py-28 lg:py-32"
     >
       <div
         aria-hidden="true"
@@ -52,7 +68,7 @@ export function HumanDesignTransition() {
           </Reveal>
 
           <Reveal delay={0.22}>
-            <div className="mx-auto my-16 h-24 w-px bg-gradient-to-b from-transparent via-[var(--color-gold)]/60 to-transparent" />
+            <div className="mx-auto my-12 h-20 w-px bg-gradient-to-b from-transparent via-[var(--color-gold)]/60 to-transparent" />
           </Reveal>
 
           <Reveal delay={0.3}>
@@ -62,30 +78,30 @@ export function HumanDesignTransition() {
           </Reveal>
 
           <Reveal delay={0.4}>
-            <p className="mx-auto mt-8 max-w-4xl font-heading text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+            <p className="mx-auto mt-7 max-w-4xl font-heading text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
               Nous avons tous appris à fonctionner de la même manière.
             </p>
           </Reveal>
 
-          <div className="relative mx-auto my-24 h-[520px] w-64">
+          <div className="relative mx-auto my-16 h-[360px] w-64">
             <div
               aria-hidden="true"
               className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-white/15 to-transparent"
             />
 
-            {dnaRows.map((row) => {
-              const progress = row / (dnaRows.length - 1);
-              const angle = progress * Math.PI * 4;
-              const offset = Math.sin(angle) * 64;
+            {dnaOffsets.map((offset, row) => {
+              const progress = row / (dnaOffsets.length - 1);
               const reverseOffset = -offset;
+              const leftOffset = Math.min(offset, reverseOffset);
+              const connectionWidth = Math.abs(offset - reverseOffset);
 
               return (
                 <motion.div
-                  key={row}
+                  key={`${row}-${offset}`}
                   aria-hidden="true"
                   className="absolute left-1/2 flex w-full -translate-x-1/2 items-center justify-center"
                   style={{
-                    top: `${progress * 100}%`,
+                    top: `${Math.round(progress * 10000) / 100}%`,
                   }}
                   initial={{
                     opacity: 0,
@@ -97,18 +113,18 @@ export function HumanDesignTransition() {
                   }}
                   viewport={{
                     once: true,
-                    amount: 0.6,
+                    amount: 0.5,
                   }}
                   transition={{
-                    delay: row * 0.055,
-                    duration: 0.65,
+                    delay: row * 0.05,
+                    duration: 0.6,
                     ease: [0.22, 1, 0.36, 1],
                   }}
                 >
                   <motion.span
                     className="absolute size-3 rounded-full border border-[var(--color-gold)]/70 bg-[var(--color-night-dark)] shadow-[0_0_24px_rgba(200,169,106,0.45)]"
                     style={{
-                      x: offset,
+                      transform: `translateX(${offset}px)`,
                     }}
                     animate={
                       shouldReduceMotion
@@ -132,15 +148,15 @@ export function HumanDesignTransition() {
                   <span
                     className="absolute h-px bg-gradient-to-r from-[var(--color-gold)]/45 via-white/25 to-[var(--color-turquoise)]/45"
                     style={{
-                      left: `calc(50% + ${Math.min(offset, reverseOffset)}px)`,
-                      width: `${Math.abs(offset - reverseOffset)}px`,
+                      left: `calc(50% + ${leftOffset}px)`,
+                      width: `${connectionWidth}px`,
                     }}
                   />
 
                   <motion.span
                     className="absolute size-3 rounded-full border border-[var(--color-turquoise)]/70 bg-[var(--color-night-dark)] shadow-[0_0_24px_rgba(44,188,195,0.45)]"
                     style={{
-                      x: reverseOffset,
+                      transform: `translateX(${reverseOffset}px)`,
                     }}
                     animate={
                       shouldReduceMotion
@@ -172,13 +188,13 @@ export function HumanDesignTransition() {
           </Reveal>
 
           <Reveal delay={0.32}>
-            <h2 className="mt-7 font-heading text-6xl font-semibold tracking-[-0.05em] text-white sm:text-7xl lg:text-8xl">
+            <h2 className="mt-6 font-heading text-6xl font-semibold tracking-[-0.05em] text-white sm:text-7xl lg:text-8xl">
               Human Design
             </h2>
           </Reveal>
 
           <Reveal delay={0.44}>
-            <p className="mx-auto mt-8 max-w-3xl font-heading text-2xl font-medium leading-relaxed text-white/70 sm:text-3xl">
+            <p className="mx-auto mt-7 max-w-3xl font-heading text-2xl font-medium leading-relaxed text-white/70 sm:text-3xl">
               Ce n’est pas un outil pour te changer.
               <br />
               C’est un outil pour te comprendre.

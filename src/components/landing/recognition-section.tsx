@@ -1,9 +1,9 @@
 import {
-  BatteryLow,
-  BrainCircuit,
+  BriefcaseBusiness,
+  MessageSquareMore,
+  HandCoins,
   CircleHelp,
-  Compass,
-  Repeat2,
+  RefreshCw,
 } from "lucide-react";
 
 import {
@@ -19,34 +19,34 @@ import {
 
 const symptoms = [
   {
-    icon: BrainCircuit,
-    title: "Tu analyses tout",
+    icon: BriefcaseBusiness,
+    title: "Tu travailles beaucoup",
     description:
-      "Tu cherches la bonne décision, mais plus tu réfléchis, moins tu sais ce qui est juste pour toi.",
+      "Tu donnes énormément d’énergie à ton activité, mais les résultats ne suivent pas toujours à la hauteur de tes efforts.",
   },
   {
-    icon: BatteryLow,
-    title: "Tu t’épuises à tenir",
+    icon: MessageSquareMore,
+    title: "Tu communiques sans te différencier",
     description:
-      "Tu avances, tu assures, tu prends sur toi… jusqu’au moment où ton énergie ne suit plus.",
+      "Tu sais ce que tu veux transmettre, mais ton message ne reflète pas encore pleinement ce qui te rend unique.",
+  },
+  {
+    icon: HandCoins,
+    title: "Tu forces pour vendre",
+    description:
+      "Tu as parfois l’impression de devoir convaincre, insister ou en faire plus pour attirer les bons clients.",
   },
   {
     icon: CircleHelp,
-    title: "Tu doutes de toi",
+    title: "Tu doutes de ta valeur",
     description:
-      "Même lorsque tu sais faire, une partie de toi continue de demander confirmation.",
+      "Tu sais que tu as quelque chose à apporter, mais tu hésites encore à prendre pleinement ta place.",
   },
   {
-    icon: Repeat2,
-    title: "Tu répètes les mêmes schémas",
+    icon: RefreshCw,
+    title: "Tu changes souvent de direction",
     description:
-      "Tu changes de stratégie, de rythme ou de direction, mais la même tension finit par revenir.",
-  },
-  {
-    icon: Compass,
-    title: "Tu ne sais plus dans quelle direction aller",
-    description:
-      "Tu sens qu’un autre chemin existe, sans réussir à identifier clairement lequel.",
+      "Tu testes de nouvelles stratégies, de nouvelles idées ou de nouveaux positionnements sans toujours savoir quoi garder.",
   },
 ];
 
@@ -74,25 +74,24 @@ export function RecognitionSection() {
       <Container>
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
-            <Badge>Ce que tu vis n’est pas un hasard</Badge>
+            <Badge>Ce que tu vis peut-être déjà</Badge>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <Heading className="mt-7 text-balance">
-              Et si le problème n’était pas ton{" "}
+            <Heading className="mt-7 text-balance text-[var(--color-night-dark)]">
+              Tu fais déjà beaucoup…
               <span className="text-[var(--color-gold)]">
-                manque de confiance
+                {" "}
+                mais ça ne se transforme pas toujours en clients.
               </span>
-              ?
             </Heading>
           </Reveal>
 
           <Reveal delay={0.16}>
             <Paragraph className="mx-auto mt-7 max-w-3xl">
-              Tu as peut-être essayé de mieux t’organiser, de lâcher
-              prise, de réfléchir davantage ou de devenir plus
-              discipliné(e). Pourtant, quelque chose continue de
-              résister.
+              Ce n’est pas forcément un manque de travail.
+              C’est souvent un problème de direction, de message
+              ou de posture.
             </Paragraph>
           </Reveal>
         </div>
@@ -108,9 +107,7 @@ export function RecognitionSection() {
                 className={
                   index < 3
                     ? "lg:col-span-2"
-                    : index === 3
-                      ? "lg:col-span-3"
-                      : "lg:col-span-3"
+                    : "lg:col-span-3"
                 }
               >
                 <Card
@@ -124,10 +121,10 @@ export function RecognitionSection() {
                 >
                   <IconCircle
                     icon={Icon}
-                    className="transition duration-500 group-hover:scale-105 group-hover:bg-[var(--color-turquoise-light)]"
+                    className="text-[var(--color-night-dark)] transition duration-500 group-hover:scale-105 group-hover:bg-[var(--color-turquoise-light)]"
                   />
 
-                  <h3 className="mt-6 font-heading text-2xl font-semibold tracking-[-0.025em] text-[var(--color-night)]">
+                  <h3 className="mt-6 font-heading text-2xl font-semibold tracking-[-0.025em] text-[var(--color-night-dark)]">
                     {symptom.title}
                   </h3>
 
@@ -139,19 +136,6 @@ export function RecognitionSection() {
             );
           })}
         </div>
-
-        <Reveal delay={0.22}>
-          <div className="mx-auto mt-16 max-w-4xl rounded-[2rem] border border-[var(--color-gold)]/25 bg-[var(--color-gold-light)]/55 px-7 py-8 text-center sm:px-12 sm:py-10">
-            <p className="font-heading text-2xl font-semibold leading-snug text-[var(--color-night)] sm:text-3xl">
-              Et si tu n’avais pas besoin de devenir une meilleure
-              version de toi-même…
-            </p>
-
-            <p className="mt-3 font-heading text-2xl font-semibold leading-snug text-[var(--color-gold-dark)] sm:text-3xl">
-              mais simplement de comprendre comment tu fonctionnes ?
-            </p>
-          </div>
-        </Reveal>
       </Container>
     </Section>
   );

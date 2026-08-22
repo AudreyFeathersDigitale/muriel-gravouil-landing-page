@@ -1,12 +1,11 @@
 import {
-  BatteryCharging,
   Compass,
+  ShieldCheck,
   Sparkles,
 } from "lucide-react";
 
 import {
   Badge,
-  Button,
   Card,
   Container,
   Heading,
@@ -19,27 +18,27 @@ import {
 const mechanisms = [
   {
     number: "01",
-    icon: BatteryCharging,
-    title: "Ton énergie",
+    icon: Compass,
+    title: "Plus de clarté",
     description:
-      "Comprendre la manière dont ton énergie se construit, se dépense et se renouvelle naturellement.",
-    highlight: "Arrêter de t’épuiser à contre-courant.",
+      "Tu comprends ce qui bloque aujourd’hui et tu sais enfin où concentrer ton énergie.",
+    highlight: "Tu arrêtes de t’éparpiller.",
   },
   {
     number: "02",
-    icon: Compass,
-    title: "Tes décisions",
+    icon: ShieldCheck,
+    title: "Plus de confiance",
     description:
-      "Identifier ton mécanisme intérieur pour prendre des décisions qui ne viennent plus de la peur ou du mental.",
-    highlight: "Retrouver une direction qui te ressemble.",
+      "Tu prends tes décisions avec des repères adaptés à ton fonctionnement, plutôt qu’en suivant ce que tu crois devoir faire.",
+    highlight: "Tu avances avec plus de certitude.",
   },
   {
     number: "03",
     icon: Sparkles,
-    title: "Ta Zone de Génie",
+    title: "Plus d’impact",
     description:
-      "Reconnaître les talents, les qualités et la contribution qui émergent lorsque tu fonctionnes selon ta nature.",
-    highlight: "Créer davantage de fluidité.",
+      "Ta communication reflète davantage ta valeur, ta différence et la manière dont tu accompagnes réellement.",
+    highlight: "Les bonnes personnes te comprennent plus vite.",
   },
 ];
 
@@ -59,23 +58,29 @@ export function MechanismSection() {
       <Container>
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
-            <Badge>Ton mode d’emploi intérieur</Badge>
+            <Badge>Une stratégie que tu peux incarner</Badge>
           </Reveal>
 
           <Reveal delay={0.08}>
-            <Heading className="mt-7 text-balance">
-              Pendant des années, tu as essayé de{" "}
+            <Heading className="mt-7 text-balance text-[var(--color-night-dark)]">
+              Ton business n’a pas besoin{" "}
               <span className="text-[var(--color-gold)]">
-                changer ton comportement.
+                d’un personnage de plus.
               </span>
             </Heading>
           </Reveal>
 
-          <Reveal delay={0.16}>
+          <Reveal delay={0.14}>
+            <p className="mt-5 font-heading text-3xl font-semibold text-[var(--color-night-dark)] sm:text-4xl">
+              Il a besoin de davantage de toi.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.2}>
             <Paragraph className="mx-auto mt-7 max-w-3xl">
-              Le Human Design te propose une autre question : et si tu
-              comprenais d’abord ton fonctionnement, avant de chercher
-              à le corriger ?
+              L’Audit Déclic t’aide à faire émerger une manière
+              d’entreprendre, de décider et de communiquer que tu peux
+              tenir dans la durée — sans copier les autres ni jouer un rôle.
             </Paragraph>
           </Reveal>
         </div>
@@ -99,15 +104,15 @@ export function MechanismSection() {
                   <div className="flex items-start justify-between gap-5">
                     <IconCircle
                       icon={Icon}
-                      className="transition duration-500 group-hover:rotate-3 group-hover:scale-105 group-hover:bg-[var(--color-turquoise-light)]"
+                      className="text-[var(--color-night-dark)] transition duration-500 group-hover:rotate-3 group-hover:scale-105 group-hover:bg-[var(--color-turquoise-light)]"
                     />
 
-                    <span className="font-heading text-4xl font-semibold text-[var(--color-night)]/10">
+                    <span className="font-heading text-4xl font-semibold text-[var(--color-night-dark)]/10">
                       {mechanism.number}
                     </span>
                   </div>
 
-                  <h3 className="mt-8 font-heading text-3xl font-semibold tracking-[-0.03em] text-[var(--color-night)]">
+                  <h3 className="mt-8 font-heading text-3xl font-semibold tracking-[-0.03em] text-[var(--color-night-dark)]">
                     {mechanism.title}
                   </h3>
 
@@ -126,34 +131,14 @@ export function MechanismSection() {
           })}
         </div>
 
-        <Reveal delay={0.25}>
-          <div className="mx-auto mt-20 max-w-4xl rounded-[2.5rem] border border-[var(--color-border)] bg-white px-7 py-12 text-center shadow-[var(--shadow-soft)] sm:px-14 sm:py-16">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[var(--color-gold)]">
-              Ton premier déclic commence ici
-            </p>
-
-            <h3 className="mx-auto mt-6 max-w-3xl font-heading text-4xl font-semibold leading-tight tracking-[-0.035em] text-[var(--color-night)] sm:text-5xl">
-              Découvre ce que ton fonctionnement naturel révèle déjà
-              sur toi.
-            </h3>
-
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-[var(--color-muted)]">
-              Quelques minutes suffisent pour commencer à identifier
-              les mécanismes qui influencent tes choix, ton énergie et
-              ta manière d’avancer.
-            </p>
-
-            <div className="mt-9 flex justify-center">
-              <Button
-                href="/diagnostic"
-                className="w-full sm:w-auto"
-              >
-                Commencer mon diagnostic
-              </Button>
-            </div>
-
-            <p className="mt-5 text-xs text-[var(--color-muted)]">
-              Gratuit · Personnalisé · Sans engagement
+        <Reveal delay={0.3}>
+          <div className="mx-auto mt-16 max-w-4xl text-center">
+            <p className="font-heading text-3xl font-semibold leading-tight text-[var(--color-night-dark)] sm:text-4xl">
+              Moins de forcing.
+              <span className="text-[var(--color-gold)]">
+                {" "}
+                Plus de clarté, de confiance et d’impact.
+              </span>
             </p>
           </div>
         </Reveal>

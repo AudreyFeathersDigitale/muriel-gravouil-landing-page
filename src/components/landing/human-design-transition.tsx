@@ -28,7 +28,7 @@ export function HumanDesignTransition() {
   return (
     <section
       id="human-design"
-      className="relative isolate overflow-hidden bg-[var(--color-night-dark)] py-24 text-white sm:py-28 lg:py-32"
+      className="relative isolate overflow-hidden bg-[var(--color-night-dark)] py-20 text-white sm:py-24 lg:py-28"
     >
       <div
         aria-hidden="true"
@@ -37,13 +37,13 @@ export function HumanDesignTransition() {
 
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 size-[48rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[rgba(44,188,195,0.1)] blur-[120px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 size-[46rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[rgba(44,188,195,0.1)] blur-[120px]"
         animate={
           shouldReduceMotion
             ? undefined
             : {
-                scale: [1, 1.12, 1],
-                opacity: [0.35, 0.6, 0.35],
+                scale: [1, 1.1, 1],
+                opacity: [0.3, 0.55, 0.3],
               }
         }
         transition={{
@@ -56,34 +56,18 @@ export function HumanDesignTransition() {
       <Container>
         <div className="relative mx-auto max-w-5xl text-center">
           <Reveal>
-            <p className="font-heading text-3xl font-medium leading-tight text-white/60 sm:text-4xl">
-              Chaque être humain…
+            <p className="font-heading text-2xl font-medium leading-tight text-white/60 sm:text-3xl">
+              Chaque être humain fonctionne différemment.
             </p>
           </Reveal>
 
           <Reveal delay={0.12}>
-            <h2 className="mt-5 font-heading text-5xl font-semibold leading-[1.02] tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
-              fonctionne différemment.
+            <h2 className="mx-auto mt-5 max-w-4xl font-heading text-4xl font-semibold leading-tight tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
+              Pourtant, nous avons tous appris à fonctionner de la même manière.
             </h2>
           </Reveal>
 
-          <Reveal delay={0.22}>
-            <div className="mx-auto my-12 h-20 w-px bg-gradient-to-b from-transparent via-[var(--color-gold)]/60 to-transparent" />
-          </Reveal>
-
-          <Reveal delay={0.3}>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-gold)]">
-              Pourtant
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.4}>
-            <p className="mx-auto mt-7 max-w-4xl font-heading text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
-              Nous avons tous appris à fonctionner de la même manière.
-            </p>
-          </Reveal>
-
-          <div className="relative mx-auto my-16 h-[360px] w-64">
+          <div className="relative mx-auto my-14 h-[300px] w-64">
             <div
               aria-hidden="true"
               className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-white/15 to-transparent"
@@ -116,8 +100,8 @@ export function HumanDesignTransition() {
                     amount: 0.5,
                   }}
                   transition={{
-                    delay: row * 0.05,
-                    duration: 0.6,
+                    delay: row * 0.045,
+                    duration: 0.55,
                     ease: [0.22, 1, 0.36, 1],
                   }}
                 >
@@ -183,21 +167,25 @@ export function HumanDesignTransition() {
 
           <Reveal delay={0.2}>
             <p className="text-xs font-semibold uppercase tracking-[0.38em] text-[var(--color-turquoise)]">
-              La carte de ton fonctionnement naturel
+              Human Design
             </p>
           </Reveal>
 
-          <Reveal delay={0.32}>
-            <h2 className="mt-6 font-heading text-6xl font-semibold tracking-[-0.05em] text-white sm:text-7xl lg:text-8xl">
-              Human Design
+          <Reveal delay={0.3}>
+            <h2 className="mx-auto mt-6 max-w-4xl font-heading text-4xl font-semibold leading-tight tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
+              Comprendre ton fonctionnement,
+              <span className="text-[var(--color-gold)]">
+                {" "}
+                pour construire une stratégie que tu peux réellement incarner.
+              </span>
             </h2>
           </Reveal>
 
-          <Reveal delay={0.44}>
-            <p className="mx-auto mt-7 max-w-3xl font-heading text-2xl font-medium leading-relaxed text-white/70 sm:text-3xl">
-              Ce n’est pas un outil pour te changer.
-              <br />
-              C’est un outil pour te comprendre.
+          <Reveal delay={0.4}>
+            <p className="mx-auto mt-7 max-w-3xl text-base leading-8 text-white/65 sm:text-lg">
+              Ton Human Design met en lumière ton énergie, tes décisions,
+              ta manière naturelle de communiquer et ce qui devient possible
+              lorsque ton business cesse de te demander de jouer un rôle.
             </p>
           </Reveal>
         </div>

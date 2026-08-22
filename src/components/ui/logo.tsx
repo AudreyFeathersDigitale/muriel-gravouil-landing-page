@@ -32,12 +32,9 @@ export function Logo({ className }: LogoProps) {
 
       <div>
         <p className="font-heading text-base font-semibold tracking-[0.03em] text-[var(--color-night)]">
-          Muriel Gravouil
+          Transforme tes pépins en pépites
         </p>
-
-        <p className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-muted)]">
-          Zone de Génie
-        </p>
+        
       </div>
     </Link>
   );
